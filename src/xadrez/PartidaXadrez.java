@@ -1,6 +1,5 @@
 package xadrez;
 
-import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -24,9 +23,13 @@ public class PartidaXadrez {
 		return mat;
 	}
 	
-	public void IniciarPartida(){
-		tabuleiro.ColocarPece(new Torre(tabuleiro, Cor.BRANCO), new Posicao(0,0));
-		tabuleiro.ColocarPece(new Rei(tabuleiro,  Cor.PRETO), new Posicao(7, 4));
+	private void ColocarNovaPeca(char coluna, int linha, PecaXadrez peca){
+		tabuleiro.ColocarPeca(peca, new XadrezPosicao(coluna, linha).toPosicao());
+	}
+	
+	private void IniciarPartida(){
+		ColocarNovaPeca('b', 6, new Torre(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('e', 8, new Rei(tabuleiro,  Cor.PRETO));
 	}
 
 }
