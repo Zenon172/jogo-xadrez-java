@@ -28,7 +28,7 @@ public class PartidaXadrez {
 	}
 	
 	private void IniciarPartida(){
-		ColocarNovaPeca('b', 6, new Torre(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('a', 1, new Torre(tabuleiro, Cor.BRANCO));
 		ColocarNovaPeca('e', 8, new Rei(tabuleiro,  Cor.PRETO));
 	}
 
