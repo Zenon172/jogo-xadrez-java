@@ -1,9 +1,10 @@
 package xadrez;
 
 import tabuleiro.Peca;
+import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 
-public class PecaXadrez extends Peca {
+public abstract class PecaXadrez extends Peca {
 	
 	private Cor cor;
 
@@ -16,5 +17,9 @@ public class PecaXadrez extends Peca {
 		return cor;
 	}
 	
+	protected boolean possuiPecaAdversaria(Posicao posicao){
+		PecaXadrez p = (PecaXadrez)getTabuleiro().peca(posicao);
+		return p != null && p.getCor() != cor;
+	}
 
 }
