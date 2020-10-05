@@ -18,7 +18,7 @@ public class Program {
 		while (true){
 			try{
 				UI.clearScreen();
-				UI.printTabuleiro(partida.getPecas());
+				UI.printPartida(partida);
 				System.out.println();
 				System.out.print("Origem: ");
 				XadrezPosicao origem = UI.LerPosicao(sc);
