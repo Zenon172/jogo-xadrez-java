@@ -1,5 +1,8 @@
 package xadrez;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
@@ -11,6 +14,8 @@ public class PartidaXadrez {
 	private Tabuleiro tabuleiro;
 	private int turno;
 	private Cor jogadorAtual;
+	private List<Peca> pecasNoTabuleiro = new ArrayList<>();
+	private List<Peca> pecasCapturadas = new ArrayList<>();
 	
 	public PartidaXadrez(){
 		tabuleiro = new Tabuleiro (8, 8);
@@ -57,6 +62,10 @@ public class PartidaXadrez {
 		Peca p = tabuleiro.removePeca(origem);
 		Peca pecaCapturada = tabuleiro.removePeca(destino);
 		tabuleiro.ColocarPeca(p, destino);
+		if(pecaCapturada != null){
+			pecasNoTabuleiro.remove(pecaCapturada);
+			pecasCapturadas.add(pecaCapturada);
+		}
 		return pecaCapturada;
 	}
 	
@@ -81,6 +90,7 @@ public class PartidaXadrez {
 	
 	private void ColocarNovaPeca(char coluna, int linha, PecaXadrez peca){
 		tabuleiro.ColocarPeca(peca, new XadrezPosicao(coluna, linha).toPosicao());
+		pecasNoTabuleiro.add(peca);
 	}
 	
 	private void trocarTurno(){
@@ -90,7 +100,11 @@ public class PartidaXadrez {
 	
 	private void IniciarPartida(){
 		ColocarNovaPeca('a', 1, new Torre(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('h', 1, new Torre(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('e', 1, new Rei(tabuleiro, Cor.BRANCO));
 		ColocarNovaPeca('e', 8, new Rei(tabuleiro,  Cor.PRETO));
+		ColocarNovaPeca('a', 8, new Torre(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('h', 8, new Torre(tabuleiro, Cor.PRETO));
 	}
 
 }
