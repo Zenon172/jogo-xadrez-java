@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -191,9 +192,27 @@ public class PartidaXadrez {
 		ColocarNovaPeca('a', 1, new Torre(tabuleiro, Cor.BRANCO));
 		ColocarNovaPeca('h', 1, new Torre(tabuleiro, Cor.BRANCO));
 		ColocarNovaPeca('e', 1, new Rei(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('a', 2, new Peao(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('b', 2, new Peao(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('c', 2, new Peao(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('d', 2, new Peao(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('e', 2, new Peao(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('f', 2, new Peao(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('g', 2, new Peao(tabuleiro, Cor.BRANCO));
+		ColocarNovaPeca('h', 2, new Peao(tabuleiro, Cor.BRANCO));
+		
 		ColocarNovaPeca('e', 8, new Rei(tabuleiro,  Cor.PRETO));
 		ColocarNovaPeca('a', 8, new Torre(tabuleiro, Cor.PRETO));
 		ColocarNovaPeca('h', 8, new Torre(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('a', 7, new Peao(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('b', 7, new Peao(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('c', 7, new Peao(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('d', 7, new Peao(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('e', 7, new Peao(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('f', 7, new Peao(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('g', 7, new Peao(tabuleiro, Cor.PRETO));
+		ColocarNovaPeca('h', 7, new Peao(tabuleiro, Cor.PRETO));
+		
 	}
 
 }
