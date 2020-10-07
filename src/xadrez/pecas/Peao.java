@@ -3,11 +3,14 @@ package xadrez.pecas;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 import xadrez.Cor;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 
 public class Peao extends PecaXadrez{
+	
+	private PartidaXadrez partida;
 
-	public Peao(Tabuleiro tabuleiro, Cor cor) {
+	public Peao(Tabuleiro tabuleiro, Cor cor, PartidaXadrez partida) {
 		super(tabuleiro, cor);
 		
 	}
@@ -41,6 +44,18 @@ public class Peao extends PecaXadrez{
 			if(getTabuleiro().PosicaoExiste(p) && possuiPecaAdversaria(p)){
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
+			//#Movimento especial enPassant (Peça Branca)
+			if(posicao.getLinha() == 3){
+				Posicao esquerda = new Posicao(posicao.getLinha(), posicao.getColuna() -1);
+				if(getTabuleiro().PosicaoExiste(esquerda) && possuiPecaAdversaria(esquerda) && getTabuleiro().peca(esquerda) == partida.getVulneravelEnPassant()){
+					mat[esquerda.getLinha() -1][esquerda.getColuna()] = true;
+				}
+				Posicao direita = new Posicao(posicao.getLinha(), posicao.getColuna() +1);
+				if(getTabuleiro().PosicaoExiste(direita) && possuiPecaAdversaria(direita) && getTabuleiro().peca(direita) == partida.getVulneravelEnPassant()){
+					mat[direita.getLinha() -1][direita.getColuna()] = true;
+				}
+			}
+			
 			
 		} else {
 			//Mover uma casa pra frente
@@ -63,6 +78,17 @@ public class Peao extends PecaXadrez{
 			p.setValores(posicao.getLinha() + 1, posicao.getColuna() + 1);
 			if(getTabuleiro().PosicaoExiste(p) && possuiPecaAdversaria(p)){
 				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			//#Movimento especial enPassant (Peça Preta)
+			if(posicao.getLinha() == 4){
+				Posicao esquerda = new Posicao(posicao.getLinha(), posicao.getColuna() -1);
+				if(getTabuleiro().PosicaoExiste(esquerda) && possuiPecaAdversaria(esquerda) && getTabuleiro().peca(esquerda) == partida.getVulneravelEnPassant()){
+					mat[esquerda.getLinha() +1][esquerda.getColuna()] = true;
+				}
+				Posicao direita = new Posicao(posicao.getLinha(), posicao.getColuna() +1);
+				if(getTabuleiro().PosicaoExiste(direita) && possuiPecaAdversaria(direita) && getTabuleiro().peca(direita) == partida.getVulneravelEnPassant()){
+					mat[direita.getLinha() +1][direita.getColuna()] = true;
+				}
 			}
 		}
 		
