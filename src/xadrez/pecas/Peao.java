@@ -12,6 +12,7 @@ public class Peao extends PecaXadrez{
 
 	public Peao(Tabuleiro tabuleiro, Cor cor, PartidaXadrez partida) {
 		super(tabuleiro, cor);
+		this.partida = partida;
 		
 	}
 

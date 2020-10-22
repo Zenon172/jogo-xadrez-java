@@ -35,7 +35,7 @@ public class Rei extends PecaXadrez{
 	public boolean[][] movimentosPossiveis() {
 		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
 		
-		Posicao p = new Posicao(0, 0);
+		Posicao p = new Posicao(0,0);
 		
 		//Mover para cima
 		p.setValores(posicao.getLinha() - 1, posicao.getColuna());
@@ -81,22 +81,22 @@ public class Rei extends PecaXadrez{
 		// #Movimento Especial Rook
 		if (getContadorMovimentos() == 0 && !partida.getCheck()){
 			// Rook pequeno
-			Posicao posT1 = new Posicao(posicao.getLinha(), posicao.getColuna() +3);
+			Posicao posT1 = new Posicao(posicao.getLinha(), posicao.getColuna() + 3);
 			if (testRook(posT1)){
-				Posicao p1 = new Posicao(posicao.getLinha(), posicao.getColuna() +1);
-				Posicao p2 = new Posicao(posicao.getLinha(), posicao.getColuna() +2);
+				Posicao p1 = new Posicao(posicao.getLinha(), posicao.getColuna() + 1);
+				Posicao p2 = new Posicao(posicao.getLinha(), posicao.getColuna() + 2);
 				if (getTabuleiro().peca(p1) == null && getTabuleiro().peca(p2) == null){
 					mat[posicao.getLinha()][posicao.getColuna()+2] = true;
 				}
 			}
 			// Rook grande
-				Posicao posT2 = new Posicao(posicao.getLinha(), posicao.getColuna() +4);
+				Posicao posT2 = new Posicao(posicao.getLinha(), posicao.getColuna() - 4);
 				if (testRook(posT2)){
-					Posicao p1 = new Posicao(posicao.getLinha(), posicao.getColuna() +1);
-					Posicao p2 = new Posicao(posicao.getLinha(), posicao.getColuna() +2);
-					Posicao p3 = new Posicao(posicao.getLinha(), posicao.getColuna() +3);
+					Posicao p1 = new Posicao(posicao.getLinha(), posicao.getColuna() - 1);
+					Posicao p2 = new Posicao(posicao.getLinha(), posicao.getColuna() - 2);
+					Posicao p3 = new Posicao(posicao.getLinha(), posicao.getColuna() - 3);
 					if (getTabuleiro().peca(p1) == null && getTabuleiro().peca(p2) == null && getTabuleiro().peca(p3) == null){
-						mat[posicao.getLinha()][posicao.getColuna()+2] = true;
+						mat[posicao.getLinha()][posicao.getColuna() - 2] = true;
 					}
 				}
 		}
