@@ -39,7 +39,10 @@ public class Program {
 				}
 				if (partida.getPromocao() != null){
 					System.out.println("Informe a peça para Promoção: (Q = Rainha/ B = Bispo/ C = Cavalo/ T = Torre)");
-					String type = sc.nextLine();
+					String type = sc.nextLine().toUpperCase();
+					while(!type.equals("Q") && !type.equals("B") && !type.equals("C") && !type.equals("T")){
+						type = sc.nextLine().toUpperCase();
+					}
 					partida.trocarPecaPromovida(type);
 				}
 			}
